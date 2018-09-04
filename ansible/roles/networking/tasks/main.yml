@@ -1,0 +1,18 @@
+---
+
+- name: Open ssh http https ports
+  ufw:
+    rule: allow
+    port: '{{ item }}'
+  with_items:
+    - 22
+    - 80
+    - 443
+    - 514
+
+- name: Open port 514 UDP
+  ufw:
+    rule: allow
+    proto: udp
+    port: 514
+
