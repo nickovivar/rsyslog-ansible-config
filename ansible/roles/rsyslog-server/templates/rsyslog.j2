@@ -13,12 +13,12 @@ module(load="imklog")   # provides kernel logging support
 #module(load="immark")  # provides --MARK-- message capability
 
 # provides UDP syslog reception
-#module(load="imudp")
-#input(type="imudp" port="514")
+module(load="imudp")
+input(type="imudp" port="514")
 
 # provides TCP syslog reception
-#module(load="imtcp")
-#input(type="imtcp" port="514")
+module(load="imtcp")
+input(type="imtcp" port="514")
 
 ###########################
 #### GLOBAL DIRECTIVES ####
@@ -53,7 +53,9 @@ $IncludeConfig /etc/rsyslog.d/*.conf
 ###############
 #### RULES ####
 ###############
+
 {{ rsyslog_server_config }}
+
 #
 # First some standard log files.  Log by facility.
 #

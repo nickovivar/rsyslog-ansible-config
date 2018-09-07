@@ -1,5 +1,5 @@
 ---
-- name: install rsyslog package
+- name: install
   apt:
     name: rsyslog
     state: "{{ apt_install_state | default('latest') }}"
@@ -9,3 +9,15 @@
     - configuration
     - rsyslog
     - rsyslog-install
+
+- name: Set rsyslog config file
+  become: yes
+  template:
+    src: rsyslog.j2
+    dest: /etc/rsyslog.conf
+
+- name: Restart rsyslog service
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: rsyslog

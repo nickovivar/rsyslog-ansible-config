@@ -1,0 +1,7 @@
+---
+
+rsyslog_server_config: | 
+             $template TmplAuth, "/var/log/theguarantors/%HOSTNAME%/%PROGRAMNAME%.log"
+             $template TmplMsg, "/var/log/theguarantors/%HOSTNAME%/%PROGRAMNAME%.log"
+             authpriv.* ?TmplAuth
+             *.info;mail.none;authpriv.none;cron.none ?TmplMsg

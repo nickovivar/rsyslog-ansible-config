@@ -3,6 +3,9 @@
   become: true
   
   roles:
+    - role: hostname
+      tah: hostname
+
     - role: ssh-keys
       tag: ssh
 
