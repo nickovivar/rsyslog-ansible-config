@@ -9,15 +9,19 @@
      - vim
      - ufw
      - make
+     - python
+     - python-dev
+     - gcc
+     - dialog
+     - libaugeas0
+     - augeas-lenses
+     - libssl-dev
+     - libffi-dev
+     - ca-certificates
+     - python-pip
+     - python-virtualenv
+     - git
+     - libpython-dev
+     - zlib1g-dev
+     - rsyslog
 
-
-- name: install Rsyslog Package
-  apt:
-    name: rsyslog
-    state: "{{ apt_install_state | default('latest') }}"
-    update_cache: true
-    cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
-  tags:
-    - configuration
-    - rsyslog
-    - rsyslog-install

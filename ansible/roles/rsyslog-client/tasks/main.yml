@@ -6,6 +6,11 @@
     src: rsyslog.j2
     dest: /etc/rsyslog.conf
 
+- name: Stop Syslog service
+  systemd:
+    state: stopped
+    name: syslog
+
 - name: Restart rsyslog service
   systemd:
     state: restarted
